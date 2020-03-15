@@ -17,28 +17,32 @@ namespace LunchBuddies
 
         public string Eat()
         {
-            var Restaurant = "Some Sample Restaurant"; // grab a random restaurant to return
-            return Restaurant;
+            var restaurant = new Restaurant();
+            Console.WriteLine($"{FirstName} {LastName} is eating at {restaurant.Name}");
+            return restaurant.Name;
         }
 
         public void Eat(string food)
         {
-            Console.WriteLine($"Some employee ate {food} at the office.");
+            Console.WriteLine($"Some {FirstName} {LastName} ate {food} at the office.");
         }
 
-        public void Eat(List<LunchBuddy> companions)
+        public void Eat(List<string> companions)
         {
-            // select random restaurant
-            // print to console that employee is at restaurant
-            // output the first name of each lunch buddy in list
+            var restaurant = new Restaurant();
+
+            Console.WriteLine($"{FirstName} {LastName} is at {restaurant.Name} with...");
+            companions.ForEach(delegate (String name)
+            {
+                Console.WriteLine(name);
+            });
         }
 
-        public void Eat(string food, List<LunchBuddy> companions)
+        public void Eat(string food, List<string> companions)
         {
-            // select ranom restaurant
-            // print to console employee at the restaurant
-            // order the specified food
-            // and the first name of the teammates specified in the list
+            var restaurant = new Restaurant();
+            Console.WriteLine($"{FirstName} ordered {food} and shared with {companions[0]}");
+
         }
     }
 }
